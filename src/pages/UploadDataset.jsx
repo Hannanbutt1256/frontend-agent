@@ -14,7 +14,7 @@ export default function UploadDataset() {
   const [targetColumn, setTargetColumn] = useState('')
   const [status, setStatus] = useState('idle') // 'idle' | 'uploading' | 'submitting' | 'success' | 'error'
   const [error, setError] = useState(null)
-  
+
   const fileInputRef = useRef(null)
 
   const handleFileChange = (e) => {
@@ -57,13 +57,13 @@ export default function UploadDataset() {
 
     try {
       let datasetUrl = url
-      
+
       if (method === 'upload') {
         datasetUrl = await uploadDatasetFile(file, user.id)
       }
 
       setStatus('submitting')
-      
+
       const job = await createJob({
         userId: user.id,
         datasetUrl,
@@ -77,19 +77,13 @@ export default function UploadDataset() {
           targetColumn: targetColumn.trim() || null
         })
 
-        // Update Supabase with the result
-        await updateJobStatus(job.id, { 
-          status: 'completed', 
-          result: result
-        })
-
         setStatus('success')
         setTimeout(() => navigate('/app/completed'), 1500)
       } catch (submitErr) {
         console.error(submitErr)
-        await updateJobStatus(job.id, { 
-          status: 'failed', 
-          error_message: submitErr.message 
+        await updateJobStatus(job.id, {
+          status: 'failed',
+          error_message: submitErr.message
         })
         throw submitErr
       }
@@ -218,7 +212,7 @@ export default function UploadDataset() {
         <div className="sticky top-10 space-y-6 animate-fade-in" style={{ animationDelay: '0.2s' }}>
           <div className="glass-card p-8 border-accent/20 bg-accent/5 overflow-hidden relative">
             <div className="absolute top-[-20%] right-[-20%] w-48 h-48 bg-accent/10 rounded-full blur-[60px]" />
-            
+
             <h3 className="text-white font-black mb-4 flex items-center gap-2">
               <Sparkles size={18} className="text-accent" /> Ready for Analysis
             </h3>

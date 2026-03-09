@@ -7,6 +7,7 @@ export async function submitJobToBackend({ jobId, datasetUrl, targetColumn }) {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
+      job_id: jobId,
       dataset_url: datasetUrl,
       target_column: targetColumn || undefined,
     }),
