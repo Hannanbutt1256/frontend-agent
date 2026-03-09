@@ -94,7 +94,7 @@ export default function CompletedAgents() {
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-4 mb-2">
                     <h3 className="text-xl font-black text-white truncate group-hover:text-emerald-400 transition-colors" title={job.dataset_url}>
-                      {job.dataset_url.split('/').pop() || 'Dataset'}
+                      {job.result.summary.dataset_name || 'Dataset'}
                     </h3>
                     {job.result?.summary?.ml_readiness ? (
                       <span className="text-[10px] font-black uppercase tracking-[0.2em] bg-emerald-500/10 text-emerald-500 px-3 py-1 rounded-full border border-emerald-500/20">
