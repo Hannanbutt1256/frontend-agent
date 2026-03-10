@@ -1,16 +1,76 @@
-# React + Vite
+# AuditAI - Intelligent Data Auditing Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+AuditAI is a modern, high-performance web application designed for managing and monitoring AI agent auditing jobs. It allows users to upload datasets and run specialized agents to detect bias, data leakage, and quality issues, providing a comprehensive result dashboard for detailed analysis.
 
-Currently, two official plugins are available:
+## 🚀 Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Frontend Framework**: [React 19](https://react.dev/)
+- **Build Tool**: [Vite 7](https://vitejs.dev/)
+- **Styling**: [Tailwind CSS 4](https://tailwindcss.com/)
+- **Backend as a Service**: [Supabase](https://supabase.com/) (Auth, Database, Storage)
+- **UI Components**: [Radix UI](https://www.radix-ui.com/) primitives
+- **Animations**: [Framer Motion](https://www.framer.com/motion/)
+- **Icons**: [Lucide React](https://lucide.dev/)
+- **Markdown Rendering**: [react-markdown](https://github.com/remarkjs/react-markdown) with Syntax Highlighting
 
-## React Compiler
+## ✨ Key Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Secure Authentication**: Integration with Supabase Auth for protected routes and user management.
+- **Dataset Management**: Streamlined interface for uploading and managing datasets for auditing.
+- **Job Monitoring**: Real-time tracking of running, completed, and failed agent jobs.
+- **Intelligence Dashboard**: Advanced visualization of audit results, including:
+  - **Bias Detection**: Identifying algorithmic bias in datasets.
+  - **Leakage Analysis**: Detecting data leakage across training/testing sets.
+  - **Data Quality**: High-level metrics on dataset health.
+- **Modern UI/UX**: Premium aesthetic with grainy gradients, glow effects, and micro-animations.
 
-## Expanding the ESLint configuration
+## 🛠️ Getting Started
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Prerequisites
+
+- Node.js (Latest LTS recommended)
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone <repository-url>
+   cd frontend-agent
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Configure environment variables:
+   Create a `.env` file in the root directory and add your Supabase credentials:
+   ```env
+   VITE_SUPABASE_URL=your_supabase_url
+   VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
+   ```
+
+### Development
+
+Run the development server:
+```bash
+npm run dev
+```
+
+Build for production:
+```bash
+npm run build
+```
+
+## 📂 Project Structure
+
+- `src/components`: Reusable UI components and layout structures.
+- `src/context`: Auth and state management contexts.
+- `src/lib`: Core library initializations (e.g., Supabase client).
+- `src/pages`: Application views (Landing, Auth, Dashboard, etc.).
+- `src/assets`: Static assets like images and fonts.
+
+## 📄 License
+
+[Insert License Type Here, e.g., MIT]
